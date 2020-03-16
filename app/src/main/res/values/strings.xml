@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Leon Ocio</string>
+    <string name="string_boton_iniciar_sesion">Iniciar sesion</string>
+    <string name="string_boton_acceso_invitado">Acceso invitado</string>
 </resources>
