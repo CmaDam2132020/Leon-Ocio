@@ -35,7 +35,9 @@ public class IniciarSesion extends Activity {
                     @Override
                     public void onResponse(String response) {
                         if(!response.isEmpty()){
+
                             text_view_iniciar_sesion.setText(response);
+                            
 
                         }else{
                             Toast.makeText(getApplicationContext(),"Usuario o contraseña incorrectos",Toast.LENGTH_SHORT).show();
