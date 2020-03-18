@@ -52,7 +52,7 @@ public class IniciarSesion extends Activity {
                     protected Map<String, String> getParams() throws AuthFailureError {
                         Map<String,String> parametros = new HashMap<String,String>();
                         parametros.put("usuario",edit_text_nombre.getText().toString());
-                        parametros.put("pass",edit_text_pass.getText().toString());
+                        parametros.put("password",edit_text_pass.getText().toString());
                         return parametros;
                     }
                 };
