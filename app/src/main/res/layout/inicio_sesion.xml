@@ -4,8 +4,30 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/text_view_iniciar_sesion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="pantalla_inicio_sesion" />
+
+    <EditText
+        android:id="@+id/edit_text_nombre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="nombre" />
+
+    <EditText
+        android:id="@+id/edit_text_pass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="contraseña" />
+
+    <Button
+        android:id="@+id/boton_iniciar_sesion_is"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/string_boton_iniciar_sesion" />
 </LinearLayout>
