@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/text_view_panel_busqueda"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="" />
+
+    <Button
+        android:id="@+id/boton_realizar_busqueda"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Realizar busqueda" />
+
+    <Button
+        android:id="@+id/boton_ver_recomendados"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ver Recomendados" />
+
+    <Button
+        android:id="@+id/boton_ver_favoritos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:text="Ver tus favoritos" />
+
+    <Button
+        android:id="@+id/boton_administar_negocios"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:text="Administrar negocio" />
+
+
+</LinearLayout>

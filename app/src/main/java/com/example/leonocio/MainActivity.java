@@ -16,6 +16,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         final Context ctx_main = getApplicationContext();
+
+
+
         Button boton_iniciar_sesion = findViewById(R.id.boton_iniciar_sesion_main);
         Button boton_acceso_invitado = findViewById(R.id.boton_acceso_invitado);
         View.OnClickListener listener_boton_iniciar_sesion = new View.OnClickListener() {
@@ -34,8 +37,14 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 TextView text_view_main = findViewById(R.id.text_view_main);
                 text_view_main.setText("Boton acceso invitado pulsado");
+                GestorSesion gestor_login = new GestorSesion();
+                gestor_login.cerrar_sesion(getApplicationContext());
+                Intent intent_panel_busqueda = new Intent(ctx_main,PanelBusqueda.class);
+                startActivityForResult(intent_panel_busqueda,1);
             }
         };
         boton_acceso_invitado.setOnClickListener(listener_boton_acceso_invitado);
+
+
     }
 }
