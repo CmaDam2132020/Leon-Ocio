@@ -24,9 +24,16 @@
         android:text="@string/string_boton_iniciar_sesion" />
 
     <Button
-        android:id="@+id/boton_acceso_invitado"
+        android:id="@+id/boton_ir_a_busqueda"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/string_boton_acceso_invitado" />
+        android:text="Iniciar busqueda" />
+
+    <Button
+        android:id="@+id/boton_cerrar_sesion_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:text="Cerrar Sesion" />
 
 </LinearLayout>

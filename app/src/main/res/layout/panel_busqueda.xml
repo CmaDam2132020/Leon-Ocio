@@ -35,5 +35,12 @@
         android:visibility="gone"
         android:text="Administrar negocio" />
 
+    <Button
+        android:id="@+id/boton_cerrar_sesion_panel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:text="Cerrar sesion" />
+
 
 </LinearLayout>

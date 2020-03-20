@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="nombre" />
+        android:text="paco" />
 
     <EditText
         android:id="@+id/edit_text_pass"
@@ -23,11 +23,18 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="contraseña" />
+        android:text="paco2" />
 
     <Button
         android:id="@+id/boton_iniciar_sesion_is"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/string_boton_iniciar_sesion" />
+
+    <Button
+        android:id="@+id/boton_cerrar_sesion_inicio_sesion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:text="Cerrar Sesion" />
 </LinearLayout>
