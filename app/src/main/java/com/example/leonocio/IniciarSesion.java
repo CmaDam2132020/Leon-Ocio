@@ -63,7 +63,7 @@ public class IniciarSesion extends Activity {
                     } else {
                         final TextView text_view_iniciar_sesion = findViewById(R.id.text_view_iniciar_sesion);
 
-                        StringRequest php_request = new StringRequest(Request.Method.POST, "http://192.168.56.1/leon_ocio/test.php", new Response.Listener<String>() {
+                        StringRequest php_request = new StringRequest(Request.Method.POST, "http://192.168.56.1/leon_ocio/buscar_usuario_pass.php", new Response.Listener<String>() {
                             @Override
                             public void onResponse(String response) {
                                 TextView text_view_inicar_sesion = findViewById(R.id.text_view_iniciar_sesion);
