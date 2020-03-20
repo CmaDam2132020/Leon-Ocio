@@ -84,11 +84,12 @@ public class IniciarSesion extends Activity {
                                         }
                                         GestorSesion gestor_sesion = new GestorSesion();
                                         gestor_sesion.iniciar_sesion(getApplicationContext(), idUsuario, nombre, pass, email, responsable);
-                                        text_view_inicar_sesion.setText("Encontrado");
+                                        Toast.makeText(getApplicationContext(),"Login con exito",Toast.LENGTH_SHORT).show();
                                         Intent intent_panel_busqueda = new Intent(getApplicationContext(), PanelBusqueda.class);
                                         startActivityForResult(intent_panel_busqueda, 2);
                                     } else {
-                                        text_view_inicar_sesion.setText("No encontrado");
+                                        Toast.makeText(getApplicationContext(),"Usuario o contraseña erroneos",Toast.LENGTH_SHORT).show();
+
                                     }
 
                                 } catch (JSONException e) {
