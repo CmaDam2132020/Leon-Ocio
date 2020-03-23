@@ -78,8 +78,8 @@ public class IniciarSesion extends Activity {
                                         String pass = respuesta_JSON.getString("pass");
                                         String email = respuesta_JSON.getString("email");
                                         Boolean responsable = false;
-                                        Integer int_responsable = respuesta_JSON.getInt("responsable");
-                                        if (int_responsable == 1) {
+                                        Boolean bool_responsable = respuesta_JSON.getBoolean("responsable");
+                                        if (bool_responsable) {
                                             responsable = true;
                                         }
                                         GestorSesion gestor_sesion = new GestorSesion();
