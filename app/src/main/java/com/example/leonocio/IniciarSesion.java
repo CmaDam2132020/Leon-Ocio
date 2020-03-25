@@ -66,7 +66,7 @@ public class IniciarSesion extends Activity {
                         StringRequest php_request = new StringRequest(Request.Method.POST, "http://192.168.56.1/leon_ocio/login.php", new Response.Listener<String>() {
                             @Override
                             public void onResponse(String response) {
-                                TextView text_view_inicar_sesion = findViewById(R.id.text_view_iniciar_sesion);
+
 
                                 try {
                                     JSONObject respuesta_JSON = new JSONObject(response);
