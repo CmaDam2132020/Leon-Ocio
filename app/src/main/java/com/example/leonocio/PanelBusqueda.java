@@ -79,7 +79,7 @@ public class PanelBusqueda extends Activity {
                 @Override
                 public void onClick(View v) {
 
-                    StringRequest php_request = new StringRequest(Request.Method.POST, "http://192.168.56.1/leon_ocio/busqueda.php", new Response.Listener<String>() {
+                    StringRequest php_request = new StringRequest(Request.Method.POST, "http://192.168.56.1/leon_ocio/sacar_lugares_busqueda.php", new Response.Listener<String>() {
                         @Override
                         public void onResponse(String response) {
 
