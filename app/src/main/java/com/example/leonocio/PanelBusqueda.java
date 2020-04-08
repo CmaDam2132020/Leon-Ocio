@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -40,7 +41,7 @@ public class PanelBusqueda extends Activity {
     public void onWindowFocusChanged(boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);
         if(hasFocus){
-            Context ctx_panel = getApplicationContext();
+            final Context ctx_panel = getApplicationContext();
             final TextView text_view_panel_busqueda = findViewById(R.id.text_view_panel_busqueda);
             final Button boton_cerrar_sesion_panel = findViewById(R.id.boton_cerrar_sesion_panel);
             final GestorSesion gestor_login = new GestorSesion();
@@ -92,6 +93,7 @@ public class PanelBusqueda extends Activity {
                                     JSONArray array_lugares = respuesta_JSON.getJSONArray("lugares");
                                     Toast.makeText(getApplicationContext(),"Hay resultados " + array_lugares.length(),Toast.LENGTH_SHORT).show();
                                     text_view_panel_busqueda.setText("");
+                                    ListView list_view_busqueda = findViewById(R.id.list_view_busqueda);
                                     for(int i=0;i<array_lugares.length();i++){
                                         JSONObject lugar = array_lugares.getJSONObject(i);
 
@@ -110,8 +112,13 @@ public class PanelBusqueda extends Activity {
                                         text_view_panel_busqueda.append("descripcion: "+descripcion+'\n');
                                         String nombreCategoria = lugar.getString("nombreCategoria");
                                         text_view_panel_busqueda.append("nombreCategoria: "+nombreCategoria+'\n');
+                                        Double puntuacion = lugar.getDouble("puntuacion");
+                                        text_view_panel_busqueda.append("puntuacion: "+puntuacion+'\n');
+
+
 
                                     }
+                                    list_view_busqueda.setAdapter(new AdaptadorLista(ctx_panel,array_lugares));
 
 
 
