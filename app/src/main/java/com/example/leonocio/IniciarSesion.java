@@ -73,7 +73,8 @@ public class IniciarSesion extends Activity {
                                     Boolean encontrado = respuesta_JSON.getBoolean("encontrado");
 
                                     if (encontrado) {
-                                        Integer idUsuario = respuesta_JSON.getInt("idUsuario");
+                                        String idUsuario = respuesta_JSON.getString("idUsuario");
+
                                         String nombre = respuesta_JSON.getString("nombre");
                                         String pass = respuesta_JSON.getString("pass");
                                         String email = respuesta_JSON.getString("email");

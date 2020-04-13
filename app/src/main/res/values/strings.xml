@@ -2,4 +2,16 @@
     <string name="app_name">Leon Ocio</string>
     <string name="string_boton_iniciar_sesion">Iniciar sesion</string>
     <string name="string_boton_acceso_invitado">Acceso invitado</string>
+    <string-array name="categorias">
+        <item>Cualquiera</item>
+        <item>Monumentos</item>
+        <item>Bares y Cafeterias</item>
+        <item>Tiendas</item>
+        <item>Restaurantes</item>
+    </string-array>
+    <string-array name="orden_busqueda">
+        <item>Alfabetico</item>
+        <item>Puntuacion</item>
+    </string-array>
+
 </resources>

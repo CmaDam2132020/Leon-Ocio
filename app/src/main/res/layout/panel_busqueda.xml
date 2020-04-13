@@ -15,13 +15,39 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="WHERE lugares.idLugar = 1" />
+        android:text="" />
 
     <Button
         android:id="@+id/boton_realizar_busqueda"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Realizar busqueda" />
+
+    <TextView
+        android:id="@+id/textView_categorias"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Categoria" />
+
+    <Spinner
+        android:id="@+id/spinner_categorias"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/categorias"
+        android:spinnerMode="dropdown" />
+
+    <TextView
+        android:id="@+id/textView_orden"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ordenacion: " />
+
+    <Spinner
+        android:id="@+id/spinner_orden_busqueda"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/orden_busqueda"
+        android:spinnerMode="dropdown"/>
 
     <Button
         android:id="@+id/boton_ver_recomendados"

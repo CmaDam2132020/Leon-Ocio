@@ -2,13 +2,14 @@ package com.example.leonocio;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.widget.Toast;
 
 public class GestorSesion {
-    public void  iniciar_sesion(Context ctx,Integer idUsuario,String nombre,String pass,String email,Boolean responsable){
+    public void  iniciar_sesion(Context ctx,String idUsuario,String nombre,String pass,String email,Boolean responsable){
         SharedPreferences preferences = ctx.getSharedPreferences("preferenciasLogin",Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
         editor.putBoolean("sesion",true);
-        editor.putInt("idUsuario",idUsuario);
+        editor.putString("idUsuario",idUsuario);
         editor.putString("nombre",nombre);
         editor.putString("pass",pass);
         editor.putString("email",email);
@@ -45,5 +46,11 @@ public class GestorSesion {
         boolean bool_responsable = preferences.getBoolean("responsable",false);
         return  bool_responsable;
 
+    }
+
+    public String sacar_idUsuario(Context ctx){
+        SharedPreferences preferences = ctx.getSharedPreferences("preferenciasLogin",Context.MODE_PRIVATE);
+        String idUsuario = preferences.getString("idUsuario","");
+        return  idUsuario;
     }
 }

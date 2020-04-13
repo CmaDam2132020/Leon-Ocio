@@ -5,9 +5,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -47,9 +50,10 @@ public class PanelBusqueda extends Activity {
             final GestorSesion gestor_login = new GestorSesion();
             final Button boton_realizar_busqueda = findViewById(R.id.boton_realizar_busqueda);
             final EditText edit_text_panel_busqueda = findViewById(R.id.edit_text_panel_busqueda);
+            Button boton_ver_favoritos = findViewById(R.id.boton_ver_favoritos);
             if(gestor_login.comprobar_sesion(ctx_panel)){
                 text_view_panel_busqueda.setText("Hola: "+gestor_login.sacar_nombre(ctx_panel));
-                Button boton_ver_favoritos = findViewById(R.id.boton_ver_favoritos);
+
                 boton_ver_favoritos.setVisibility(View.VISIBLE);
                 Button boton_administrar_negocios = findViewById(R.id.boton_administar_negocios);
                 if(gestor_login.comprobar_responsable(ctx_panel)){
@@ -80,10 +84,13 @@ public class PanelBusqueda extends Activity {
                 @Override
                 public void onClick(View v) {
 
+
                     StringRequest php_request = new StringRequest(Request.Method.POST, "http://192.168.56.1/leon_ocio/sacar_lugares_busqueda.php", new Response.Listener<String>() {
                         @Override
                         public void onResponse(String response) {
-
+                            //text_view_panel_busqueda.setText(response);
+                            Toast.makeText(getApplicationContext(),edit_text_panel_busqueda.getText().toString(),Toast.LENGTH_SHORT).show();
+                            ListView list_view_busqueda = findViewById(R.id.list_view_busqueda);
                             try {
                                 JSONObject respuesta_JSON = new JSONObject(response);
                                 Boolean encontrado = respuesta_JSON.getBoolean("encontrado");
@@ -92,9 +99,9 @@ public class PanelBusqueda extends Activity {
 
                                     JSONArray array_lugares = respuesta_JSON.getJSONArray("lugares");
                                     Toast.makeText(getApplicationContext(),"Hay resultados " + array_lugares.length(),Toast.LENGTH_SHORT).show();
-                                    text_view_panel_busqueda.setText("");
-                                    ListView list_view_busqueda = findViewById(R.id.list_view_busqueda);
-                                    for(int i=0;i<array_lugares.length();i++){
+
+
+                                    /*for(int i=0;i<array_lugares.length();i++){
                                         JSONObject lugar = array_lugares.getJSONObject(i);
 
                                         text_view_panel_busqueda.append("Lugar indice: "+i+'\n');
@@ -117,14 +124,14 @@ public class PanelBusqueda extends Activity {
 
 
 
-                                    }
+                                    }*/
                                     list_view_busqueda.setAdapter(new AdaptadorLista(ctx_panel,array_lugares));
 
 
 
                                 } else {
                                     Toast.makeText(getApplicationContext(),"No se ha encontrado nada",Toast.LENGTH_SHORT).show();
-
+                                    list_view_busqueda.setAdapter(new AdaptadorVacio());
                                 }
 
                             } catch (JSONException e) {
@@ -142,7 +149,22 @@ public class PanelBusqueda extends Activity {
                         protected Map<String, String> getParams() throws AuthFailureError {
 
                             Map<String, String> parametros = new HashMap<String, String>();
-                            parametros.put("sql_adicional",edit_text_panel_busqueda.getText().toString() );
+                            parametros.put("sql_busqueda",edit_text_panel_busqueda.getText().toString() );
+                            Spinner spinner_categorias = findViewById(R.id.spinner_categorias);
+                            if(spinner_categorias.getSelectedItem().toString().equals("Cualquiera")){
+                                parametros.put("sql_categoria","%" );
+                            }else{
+                                parametros.put("sql_categoria",spinner_categorias.getSelectedItem().toString());
+                            }
+                            Spinner spinner_orden_busqueda = findViewById(R.id.spinner_orden_busqueda);
+                            if(spinner_orden_busqueda.getSelectedItem().toString().equals("Alfabetico")){
+                                parametros.put("sql_orden"," ORDER BY nombre" );
+                            }else if(spinner_orden_busqueda.getSelectedItem().toString().equals("Puntuacion")){
+                                parametros.put("sql_orden"," ORDER BY puntuacion DESC " );
+
+                            }
+
+
                             return parametros;
                         }
                     };
@@ -154,6 +176,81 @@ public class PanelBusqueda extends Activity {
                 }
             };
             boton_realizar_busqueda.setOnClickListener(listener_boton_realizar_busqueda);
+
+            View.OnClickListener listner_ver_favoritos = new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    StringRequest php_request = new StringRequest(Request.Method.POST, "http://192.168.56.1/leon_ocio/sacar_lugares_favoritos.php", new Response.Listener<String>() {
+                        @Override
+                        public void onResponse(String response) {
+                            //text_view_panel_busqueda.setText(response);
+                            Toast.makeText(getApplicationContext(),edit_text_panel_busqueda.getText().toString(),Toast.LENGTH_SHORT).show();
+                            ListView list_view_busqueda = findViewById(R.id.list_view_busqueda);
+                            try {
+                                JSONObject respuesta_JSON = new JSONObject(response);
+                                Boolean encontrado = respuesta_JSON.getBoolean("encontrado");
+                                Toast.makeText(getApplicationContext(),encontrado+"",Toast.LENGTH_SHORT).show();
+                                if (encontrado) {
+
+                                    JSONArray array_lugares = respuesta_JSON.getJSONArray("lugares");
+                                    Toast.makeText(getApplicationContext(),"Hay resultados " + array_lugares.length(),Toast.LENGTH_SHORT).show();
+
+                                    list_view_busqueda.setAdapter(new AdaptadorLista(ctx_panel,array_lugares));
+
+
+
+                                } else {
+                                    Toast.makeText(getApplicationContext(),"No se ha encontrado nada",Toast.LENGTH_SHORT).show();
+                                    list_view_busqueda.setAdapter(new AdaptadorVacio());
+                                }
+
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+
+                        }
+                    }, new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            Toast.makeText(getApplicationContext(), "Error al conectarse con el servidor php", Toast.LENGTH_SHORT).show();
+                        }
+                    }) {
+                        @Override
+                        protected Map<String, String> getParams() throws AuthFailureError {
+
+                            Map<String, String> parametros = new HashMap<String, String>();
+
+                            String idUsuario = gestor_login.sacar_idUsuario(getApplicationContext());
+
+                            parametros.put("idUsuario", idUsuario);
+
+                            parametros.put("sql_busqueda",edit_text_panel_busqueda.getText().toString() );
+                            Spinner spinner_categorias = findViewById(R.id.spinner_categorias);
+                            if(spinner_categorias.getSelectedItem().toString().equals("Cualquiera")){
+                                parametros.put("sql_categoria","%" );
+                            }else{
+                                parametros.put("sql_categoria",spinner_categorias.getSelectedItem().toString());
+                            }
+                            Spinner spinner_orden_busqueda = findViewById(R.id.spinner_orden_busqueda);
+                            if(spinner_orden_busqueda.getSelectedItem().toString().equals("Alfabetico")){
+                                parametros.put("sql_orden"," ORDER BY nombre" );
+                            }else if(spinner_orden_busqueda.getSelectedItem().toString().equals("Puntuacion")){
+                                parametros.put("sql_orden"," ORDER BY puntuacion DESC " );
+
+                            }
+
+                            return parametros;
+                        }
+                    };
+
+
+                    RequestQueue mi_queue = Volley.newRequestQueue(getApplicationContext());
+                    mi_queue.add(php_request);
+
+                }
+            };
+            boton_ver_favoritos.setOnClickListener(listner_ver_favoritos);
+
         }
     }
 }

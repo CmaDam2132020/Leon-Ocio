@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import org.json.JSONArray;
@@ -23,6 +24,8 @@ public class AdaptadorLista extends BaseAdapter {
         array_lugares=json_array;
         inflater = (LayoutInflater)ctx.getSystemService(ctx.LAYOUT_INFLATER_SERVICE);
     }
+
+
 
     @Override
     public int getCount() {
@@ -45,10 +48,23 @@ public class AdaptadorLista extends BaseAdapter {
         final View vista = inflater.inflate(R.layout.elemento_lista, null);
 
         TextView titulo_elemento_lista = (TextView) vista.findViewById(R.id.titulo_elemento_lista);
+        TextView direccion_elemento_lista = (TextView) vista.findViewById(R.id.direccion_elemento_lista);
+        TextView categoria_elemento_lista = (TextView) vista.findViewById(R.id.categoria_elemento_lista);
+        TextView puntuacion_elemento_lista = (TextView) vista.findViewById(R.id.puntuacion_elemento_lista);
 
         try {
             JSONObject lugar = array_lugares.getJSONObject(i);
-            titulo_elemento_lista.setText(lugar.getString("nombre"));
+            titulo_elemento_lista.setText("Nombre: "+lugar.getString("nombre"));
+            direccion_elemento_lista.setText("Direccion: "+lugar.getString("direccion"));
+            categoria_elemento_lista.setText("Categoria: "+lugar.getString("nombreCategoria"));
+            Double puntuacion = lugar.getDouble("puntuacion");
+            if(puntuacion==-1){
+                puntuacion_elemento_lista.setText("Aun no hay puntuacion");
+            }else{
+                puntuacion_elemento_lista.setText("Puntuacion: "+lugar.getString("puntuacion")+"/5");
+            }
+
+
         } catch (JSONException e) {
             e.printStackTrace();
         }
