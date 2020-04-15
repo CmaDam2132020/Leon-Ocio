@@ -52,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
                     }else{
                         Intent intent_iniciar_sesion = new Intent(ctx_main,IniciarSesion.class);
                         startActivityForResult(intent_iniciar_sesion,0);
+
                     }
 
                 }

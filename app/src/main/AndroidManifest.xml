@@ -20,6 +20,8 @@
         </activity>
         <activity android:name=".PanelBusqueda">
         </activity>
+        <activity android:name=".LugarIndividual">
+        </activity>
     </application>
 
 </manifest>
