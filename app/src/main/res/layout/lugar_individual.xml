@@ -17,7 +17,7 @@
         android:visibility="gone"/>
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textView_li"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Nombre: " />
@@ -29,7 +29,7 @@
         android:text="TextView" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/textView2_li"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Direccion: " />
@@ -41,7 +41,7 @@
         android:text="TextView" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/textView3_li"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Latitud: " />
@@ -53,7 +53,7 @@
         android:text="TextView" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/textView4_li"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Longitud: " />
@@ -65,7 +65,7 @@
         android:text="TextView" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/textView5_li"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Descripcion: " />
@@ -77,7 +77,7 @@
         android:text="TextView" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/textView6_li"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Categoria: " />
@@ -89,7 +89,7 @@
         android:text="TextView" />
 
     <TextView
-        android:id="@+id/textView7"
+        android:id="@+id/textView7_li"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Puntuacion: " />
@@ -99,6 +99,35 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="TextView" />
+
+    <TextView
+        android:id="@+id/textView8_li"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Introduce tu review con tu puntuacion: "
+        android:visibility="gone"/>
+
+    <RatingBar
+        android:id="@+id/rating_bar_lugar_individual"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"/>
+
+    <EditText
+        android:id="@+id/edit_text_review_usuario"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType=""
+        android:text=""
+        android:visibility="gone"/>
+
+    <Button
+        android:id="@+id/boton_enviar_review"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Enviar_review"
+        android:visibility="gone"/>
 
     <ScrollView
         android:layout_width="match_parent"
@@ -116,4 +145,5 @@
                 android:layout_height="match_parent" />
         </LinearLayout>
     </ScrollView>
+
 </LinearLayout>
