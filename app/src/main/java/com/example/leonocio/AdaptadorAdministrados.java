@@ -1,11 +1,13 @@
 package com.example.leonocio;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -39,9 +41,9 @@ public class AdaptadorAdministrados extends BaseAdapter {
     }
 
     @Override
-    public View getView(int i, View convertView, ViewGroup parent) {
+    public View getView(int index, View convertView, ViewGroup parent) {
         final View vista = inflater.inflate(R.layout.elemento_lista, null);
-
+        final int i=index;
         TextView titulo_elemento_lista = (TextView) vista.findViewById(R.id.titulo_elemento_lista);
         TextView direccion_elemento_lista = (TextView) vista.findViewById(R.id.direccion_elemento_lista);
         TextView categoria_elemento_lista = (TextView) vista.findViewById(R.id.categoria_elemento_lista);
@@ -64,7 +66,33 @@ public class AdaptadorAdministrados extends BaseAdapter {
             e.printStackTrace();
         }
 
+        vista.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    JSONObject lugar = array_lugares.getJSONObject(i);
+                    //Toast.makeText(ctx,"Listener Activado en: "+lugar.getString("nombre")  ,Toast.LENGTH_SHORT).show();
+                    Intent intent_lugar_individual = new Intent(ctx,LugarAdministrado.class);
+                    intent_lugar_individual.putExtra("idLugar",lugar.getString("idLugar"));
+                    intent_lugar_individual.putExtra("nombre",lugar.getString("nombre"));
+                    intent_lugar_individual.putExtra("direccion",lugar.getString("direccion"));
+                    intent_lugar_individual.putExtra("latitud",lugar.getString("latitud"));
+                    intent_lugar_individual.putExtra("longitud",lugar.getString("longitud"));
+                    intent_lugar_individual.putExtra("descripcion",lugar.getString("descripcion"));
+                    intent_lugar_individual.putExtra("nombreCategoria",lugar.getString("nombreCategoria"));
+                    intent_lugar_individual.putExtra("puntuacion",lugar.getString("puntuacion"));
+                    ctx.startActivity(intent_lugar_individual);
 
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+
+
+
+            }
+        });
 
 
 
