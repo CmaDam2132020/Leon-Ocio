@@ -75,6 +75,7 @@ public class AdaptadorAdministrados extends BaseAdapter {
                     Intent intent_lugar_individual = new Intent(ctx,LugarAdministrado.class);
                     intent_lugar_individual.putExtra("idLugar",lugar.getString("idLugar"));
                     intent_lugar_individual.putExtra("nombre",lugar.getString("nombre"));
+                    intent_lugar_individual.putExtra("visible",lugar.getString("visible"));
                     intent_lugar_individual.putExtra("direccion",lugar.getString("direccion"));
                     intent_lugar_individual.putExtra("latitud",lugar.getString("latitud"));
                     intent_lugar_individual.putExtra("longitud",lugar.getString("longitud"));
