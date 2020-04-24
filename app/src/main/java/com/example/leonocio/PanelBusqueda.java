@@ -47,6 +47,7 @@ public class PanelBusqueda extends Activity {
             final Context ctx_panel = getApplicationContext();
             final TextView text_view_panel_busqueda = findViewById(R.id.text_view_panel_busqueda);
             final Button boton_cerrar_sesion_panel = findViewById(R.id.boton_cerrar_sesion_panel);
+            final Button boton_opciones_usuarios = findViewById(R.id.boton_opciones_usuarios);
             final GestorSesion gestor_login = new GestorSesion();
             final Button boton_realizar_busqueda = findViewById(R.id.boton_realizar_busqueda);
             final EditText edit_text_panel_busqueda = findViewById(R.id.edit_text_panel_busqueda);
@@ -275,6 +276,16 @@ public class PanelBusqueda extends Activity {
                 }
             };
             boton_ver_recomendados.setOnClickListener(listener_ver_recomendados);
+
+            View.OnClickListener listener_opciones_usuario = new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent_opciones_usuarios = new Intent(ctx_panel,OpcionesUsuario.class);
+                    startActivityForResult(intent_opciones_usuarios,7);
+
+                }
+            };
+            boton_opciones_usuarios.setOnClickListener(listener_opciones_usuario);
 
         }
     }

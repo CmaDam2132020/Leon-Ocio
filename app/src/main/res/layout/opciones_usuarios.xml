@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/text_view_opciones_usuarios"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Nombre:" />
+
+    <EditText
+        android:id="@+id/edit_text_nombre_opciones_usuarios"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="" />
+
+    <Button
+        android:id="@+id/boton_comprobar_nombre_opciones_usuarios"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Comprobar nombre" />
+
+    <Button
+        android:id="@+id/boton_cambiar_nombre_opciones_usuarios"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Cambiar nombre" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Contraseña vieja: " />
+
+    <EditText
+        android:id="@+id/edit_text_pass_vieja_opciones_usuarios"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPassword" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Contraseña nueva: " />
+
+    <EditText
+        android:id="@+id/edit_text_pass_nueva_opciones_usuarios"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPassword" />
+
+    <Button
+        android:id="@+id/boton_cambiar_pass_opciones_usuarios"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Cambiar contraseña" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Email: " />
+
+    <EditText
+        android:id="@+id/edit_text_email_opciones_usuarios"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="" />
+
+    <Button
+        android:id="@+id/boton_cambiar_email_opciones_usuarios"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Cambiar email" />
+</LinearLayout>

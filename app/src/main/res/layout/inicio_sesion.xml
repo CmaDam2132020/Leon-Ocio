@@ -22,8 +22,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="maria3" />
+        android:inputType="textPassword"
+        android:text="maria3"/>
+
 
     <Button
         android:id="@+id/boton_iniciar_sesion_is"

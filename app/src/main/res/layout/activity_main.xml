@@ -36,4 +36,72 @@
         android:visibility="gone"
         android:text="Cerrar Sesion" />
 
+    <Button
+        android:id="@+id/boton_abrir_registro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Registrarse" />
+
+    <TextView
+        android:id="@+id/textView_nombre_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Nombre: "
+        android:visibility="gone"/>
+
+    <EditText
+        android:id="@+id/editText_nombre_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text=""
+        android:visibility="gone"/>
+
+    <Button
+        android:id="@+id/boton_comprobar_nombre_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Comprobar nombre"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/textView_pass_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Contraseña: "
+        android:visibility="gone"/>
+
+
+    <EditText
+        android:id="@+id/editText_pass_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/textView_email_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Email: "
+        android:visibility="gone"/>
+
+    <EditText
+        android:id="@+id/editText_email_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text=""
+        android:visibility="gone"/>
+
+    <Button
+        android:id="@+id/boton_enviar_registro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Enviar Registro"
+        android:visibility="gone"/>
+
 </LinearLayout>
