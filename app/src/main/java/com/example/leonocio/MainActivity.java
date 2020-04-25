@@ -198,7 +198,7 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "Introduce una contraseña", Toast.LENGTH_SHORT).show();
                     }else if(editText_email_main.getText().toString().equals("")){
                         Toast.makeText(getApplicationContext(), "Introduce un correo electronico", Toast.LENGTH_SHORT).show();
-                    }else if(editText_email_main.getText().toString().contains("@")){
+                    }else if(!editText_email_main.getText().toString().contains("@")){
                         Toast.makeText(getApplicationContext(), "El campo email no contiene @", Toast.LENGTH_SHORT).show();
                     }else{
                         StringRequest php_request = new StringRequest(Request.Method.POST, "http://192.168.56.1/leon_ocio/registrar_usuario.php", new Response.Listener<String>() {

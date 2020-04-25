@@ -73,7 +73,8 @@
         android:id="@+id/boton_opciones_usuarios"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Opciones usuario" />
+        android:text="Opciones usuario"
+        android:visibility="gone"/>
 
     <Button
         android:id="@+id/boton_cerrar_sesion_panel"

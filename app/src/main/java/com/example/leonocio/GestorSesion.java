@@ -40,6 +40,11 @@ public class GestorSesion {
         String nombre = preferences.getString("nombre","Error al sacar nombre de preferencias");
         return  nombre;
     }
+    public String sacar_email(Context ctx){
+        SharedPreferences preferences = ctx.getSharedPreferences("preferenciasLogin",Context.MODE_PRIVATE);
+        String email = preferences.getString("email","Error al sacar email de preferencias");
+        return  email;
+    }
 
     public  boolean comprobar_responsable(Context ctx){
         SharedPreferences preferences = ctx.getSharedPreferences("preferenciasLogin",Context.MODE_PRIVATE);
@@ -60,10 +65,18 @@ public class GestorSesion {
         editor.putString("nombre",nombre_nuevo);
         editor.commit();
     }
+
     public void cambiar_pass(Context ctx,String pass_nueva){
         SharedPreferences preferences = ctx.getSharedPreferences("preferenciasLogin",Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
         editor.putString("pass",pass_nueva);
+        editor.commit();
+    }
+
+    public void cambiar_email(Context ctx,String email){
+        SharedPreferences preferences = ctx.getSharedPreferences("preferenciasLogin",Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString("email",email);
         editor.commit();
     }
 }

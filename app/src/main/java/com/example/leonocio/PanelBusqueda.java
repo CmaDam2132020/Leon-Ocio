@@ -55,12 +55,13 @@ public class PanelBusqueda extends Activity {
             final ListView list_view_busqueda = findViewById(R.id.list_view_busqueda);
             final Button boton_ver_favoritos = findViewById(R.id.boton_ver_favoritos);
             final Button boton_ver_recomendados = findViewById(R.id.boton_ver_recomendados);
+
             list_view_busqueda.setAdapter(new AdaptadorVacio());
             if(gestor_login.comprobar_sesion(ctx_panel)){
                 text_view_panel_busqueda.setText("Hola: "+gestor_login.sacar_nombre(ctx_panel));
 
                 boton_ver_favoritos.setVisibility(View.VISIBLE);
-
+                boton_opciones_usuarios.setVisibility(View.VISIBLE);
                 if(gestor_login.comprobar_responsable(ctx_panel)){
                     boton_administrar_negocios.setVisibility(View.VISIBLE);
                 }
@@ -81,7 +82,7 @@ public class PanelBusqueda extends Activity {
                     boton_ver_favoritos.setVisibility(View.GONE);
                     Button boton_administrar_negocios = findViewById(R.id.boton_administar_negocios);
                     boton_administrar_negocios.setVisibility(View.GONE);
-
+                    boton_opciones_usuarios.setVisibility(View.GONE);
                 }
             };
             boton_cerrar_sesion_panel.setOnClickListener(listener_cerrar_sesion_panel);

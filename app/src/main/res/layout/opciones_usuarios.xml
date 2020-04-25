@@ -13,7 +13,8 @@
         android:id="@+id/textView9"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Nombre:" />
+        android:text="Nombre:"
+        android:visibility="gone"/>
 
     <EditText
         android:id="@+id/edit_text_nombre_opciones_usuarios"
@@ -21,57 +22,66 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="" />
+        android:text=""
+        android:visibility="gone"/>
 
     <Button
         android:id="@+id/boton_comprobar_nombre_opciones_usuarios"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Comprobar nombre" />
+        android:text="Comprobar nombre"
+        android:visibility="gone"/>
 
     <Button
         android:id="@+id/boton_cambiar_nombre_opciones_usuarios"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Cambiar nombre" />
+        android:text="Cambiar nombre"
+        android:visibility="gone"/>
 
     <TextView
         android:id="@+id/textView10"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Contraseña vieja: " />
+        android:text="Contraseña vieja: "
+        android:visibility="gone"/>
 
     <EditText
         android:id="@+id/edit_text_pass_vieja_opciones_usuarios"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPassword" />
+        android:inputType="textPassword"
+        android:visibility="gone"/>
 
     <TextView
         android:id="@+id/textView11"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Contraseña nueva: " />
+        android:text="Contraseña nueva: "
+        android:visibility="gone"/>
 
     <EditText
         android:id="@+id/edit_text_pass_nueva_opciones_usuarios"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPassword" />
+        android:inputType="textPassword"
+        android:visibility="gone"/>
 
     <Button
         android:id="@+id/boton_cambiar_pass_opciones_usuarios"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Cambiar contraseña" />
+        android:text="Cambiar contraseña"
+        android:visibility="gone"/>
 
     <TextView
         android:id="@+id/textView12"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Email: " />
+        android:text="Email: "
+        android:visibility="gone"/>
 
     <EditText
         android:id="@+id/edit_text_email_opciones_usuarios"
@@ -79,11 +89,13 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="" />
+        android:text=""
+        android:visibility="gone"/>
 
     <Button
         android:id="@+id/boton_cambiar_email_opciones_usuarios"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Cambiar email" />
+        android:text="Cambiar email"
+        android:visibility="gone"/>
 </LinearLayout>
