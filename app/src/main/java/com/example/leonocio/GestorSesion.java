@@ -53,4 +53,17 @@ public class GestorSesion {
         String idUsuario = preferences.getString("idUsuario","");
         return  idUsuario;
     }
+
+    public void cambiar_nombre(Context ctx,String nombre_nuevo){
+        SharedPreferences preferences = ctx.getSharedPreferences("preferenciasLogin",Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString("nombre",nombre_nuevo);
+        editor.commit();
+    }
+    public void cambiar_pass(Context ctx,String pass_nueva){
+        SharedPreferences preferences = ctx.getSharedPreferences("preferenciasLogin",Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString("pass",pass_nueva);
+        editor.commit();
+    }
 }
