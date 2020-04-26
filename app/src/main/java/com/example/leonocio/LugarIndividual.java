@@ -29,7 +29,7 @@ import java.util.Map;
 
 public class LugarIndividual extends Activity {
     static Boolean review_publicada = false;
-
+    static Boolean lugar_en_favoritos = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,6 +54,7 @@ public class LugarIndividual extends Activity {
             final TextView text_view_puntuacion_li = findViewById(R.id.text_view_puntuacion_li);
             final TextView text_view_8_li = findViewById(R.id.textView8_li);
             final RatingBar rating_bar_lugar_individual = findViewById(R.id.rating_bar_lugar_individual);
+            final Button boton_agregar_favorito = findViewById(R.id.boton_agregar_favorito);
             final EditText edit_text_review_usuario = findViewById(R.id.edit_text_review_usuario);
             final Button boton_enviar_review = findViewById(R.id.boton_enviar_review);
 
@@ -64,7 +65,7 @@ public class LugarIndividual extends Activity {
 
                 boton_cerrar_sesion_lugar_individual.setVisibility(View.VISIBLE);
                 text_view_8_li.setVisibility(View.VISIBLE);
-
+                boton_agregar_favorito.setVisibility(View.VISIBLE);
                 rating_bar_lugar_individual.setVisibility(View.VISIBLE);
                 edit_text_review_usuario.setVisibility(View.VISIBLE);
                 boton_enviar_review.setVisibility(View.VISIBLE);
@@ -106,6 +107,7 @@ public class LugarIndividual extends Activity {
                     boton_cerrar_sesion_lugar_individual.setVisibility(View.GONE);
                     text_view_8_li.setVisibility(View.GONE);
                     rating_bar_lugar_individual.setVisibility(View.GONE);
+                    boton_agregar_favorito.setVisibility(View.GONE);
                     edit_text_review_usuario.setVisibility(View.GONE);
                     boton_enviar_review.setVisibility(View.GONE);
                 }
@@ -260,6 +262,118 @@ public class LugarIndividual extends Activity {
                 }
             };
             boton_enviar_review.setOnClickListener(listener_enviar_review);
+
+            View.OnClickListener listener_agregar_favorito = new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    StringRequest php_request_comprobar_favorito = new StringRequest(Request.Method.POST, "http://192.168.56.1/leon_ocio/comprobar_favorito.php", new Response.Listener<String>() {
+                        @Override
+                        public void onResponse(String response) {
+                            //text_view_lugar_individual.setText(response);
+
+                            //Toast.makeText(getApplicationContext(),edit_text_panel_busqueda.getText().toString(),Toast.LENGTH_SHORT).show();
+                            //ListView list_view_busqueda = findViewById(R.id.list_view_busqueda);
+                            try {
+                                JSONObject respuesta_JSON = new JSONObject(response);
+
+                                Boolean encontrado = respuesta_JSON.getBoolean("encontrado");
+                                //Toast.makeText(getApplicationContext(),encontrado+"",Toast.LENGTH_SHORT).show();
+                                if (encontrado) {
+
+                                    Toast.makeText(getApplicationContext(), "Este lugar ya esta en tus favoritos", Toast.LENGTH_SHORT).show();
+                                    lugar_en_favoritos = true;
+
+                                } else {
+
+                                    Toast.makeText(getApplicationContext(), "Este lugar  no esta en tus favoritos", Toast.LENGTH_SHORT).show();
+                                    lugar_en_favoritos = false;
+                                }
+
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+
+                        }
+                    }, new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            Toast.makeText(getApplicationContext(), "Error al conectarse con el servidor php", Toast.LENGTH_SHORT).show();
+                        }
+                    }) {
+                        @Override
+                        protected Map<String, String> getParams() throws AuthFailureError {
+
+                            Map<String, String> parametros = new HashMap<String, String>();
+
+
+                            parametros.put("idUsuario", gestor_sesion.sacar_idUsuario(getApplicationContext()));
+
+                            parametros.put("idLugar", intent_lugar_individual.getStringExtra("idLugar"));
+
+
+                            return parametros;
+                        }
+                    };
+                    RequestQueue mi_queue = Volley.newRequestQueue(getApplicationContext());
+
+                    RequestQueue.RequestFinishedListener listener_comprobar_favorito = new RequestQueue.RequestFinishedListener() {
+                        @Override
+                        public void onRequestFinished(Request request) {
+                            if(lugar_en_favoritos){
+                                Toast.makeText(getApplicationContext(), "Lugar no insertado en favoritos", Toast.LENGTH_SHORT).show();
+                            }else{
+                                StringRequest php_request_agregar_favorito = new StringRequest(Request.Method.POST, "http://192.168.56.1/leon_ocio/agregar_favorito.php", new Response.Listener<String>() {
+                                    @Override
+                                    public void onResponse(String response) {
+
+                                        //text_view_lugar_individual.setText(response);
+                                        //Toast.makeText(getApplicationContext(),edit_text_panel_busqueda.getText().toString(),Toast.LENGTH_SHORT).show();
+                                        //ListView list_view_busqueda = findViewById(R.id.list_view_busqueda);
+                                        try {
+                                            JSONObject respuesta_JSON = new JSONObject(response);
+                                            Boolean cambio = respuesta_JSON.getBoolean("cambio");
+                                            //Toast.makeText(getApplicationContext(),encontrado+"",Toast.LENGTH_SHORT).show();
+                                            if (cambio) {
+                                                Toast.makeText(getApplicationContext(), "Lugar agregado a favoritos", Toast.LENGTH_SHORT).show();
+
+
+                                            }
+
+                                        } catch (JSONException e) {
+                                            e.printStackTrace();
+                                        }
+
+                                    }
+                                }, new Response.ErrorListener() {
+                                    @Override
+                                    public void onErrorResponse(VolleyError error) {
+                                        Toast.makeText(getApplicationContext(), "Error al conectarse con el servidor php", Toast.LENGTH_SHORT).show();
+                                    }
+                                }) {
+                                    @Override
+                                    protected Map<String, String> getParams() throws AuthFailureError {
+
+                                        Map<String, String> parametros = new HashMap<String, String>();
+
+
+                                        parametros.put("idUsuario", gestor_sesion.sacar_idUsuario(getApplicationContext()));
+                                        parametros.put("idLugar", intent_lugar_individual.getStringExtra("idLugar"));
+
+
+                                        return parametros;
+                                    }
+                                };
+                                RequestQueue queue_insertar_favorito = Volley.newRequestQueue(getApplicationContext());
+                                queue_insertar_favorito.add(php_request_agregar_favorito);
+                            }
+
+                        }
+                    };
+                    mi_queue.addRequestFinishedListener(listener_comprobar_favorito);
+                    mi_queue.add(php_request_comprobar_favorito);
+                }
+            };
+            boton_agregar_favorito.setOnClickListener(listener_agregar_favorito);
 
 
             sacar_reviews(intent_lugar_individual);

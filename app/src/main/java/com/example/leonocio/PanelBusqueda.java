@@ -69,6 +69,10 @@ public class PanelBusqueda extends Activity {
                 boton_cerrar_sesion_panel.setVisibility(View.VISIBLE);
             }else{
                 text_view_panel_busqueda.setText("Estas en modo invitado");
+                boton_ver_favoritos.setVisibility(View.GONE);
+                boton_opciones_usuarios.setVisibility(View.GONE);
+                boton_administrar_negocios.setVisibility(View.GONE);
+                boton_cerrar_sesion_panel.setVisibility(View.GONE);
             }
 
             View.OnClickListener listener_cerrar_sesion_panel = new View.OnClickListener() {

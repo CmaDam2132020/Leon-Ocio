@@ -47,6 +47,7 @@ public class OpcionesUsuario extends Activity {
         final TextView textView12 = findViewById(R.id.textView12);
         final EditText edit_text_email_opciones_usuarios = findViewById(R.id.edit_text_email_opciones_usuarios);
         final Button boton_cambiar_email_opciones_usuarios = findViewById(R.id.boton_cambiar_email_opciones_usuarios);
+        final Button boton_vaciar_favoritos = findViewById(R.id.boton_vaciar_favoritos);
         if (hasFocus) {
             if (gestor_sesion.comprobar_sesion(getApplicationContext())) {
                 text_view_opciones_usuarios.setText("Hola: " + gestor_sesion.sacar_nombre(getApplicationContext()));
@@ -62,6 +63,7 @@ public class OpcionesUsuario extends Activity {
                 textView12.setVisibility(View.VISIBLE);
                 edit_text_email_opciones_usuarios.setVisibility(View.VISIBLE);
                 boton_cambiar_email_opciones_usuarios.setVisibility(View.VISIBLE);
+                boton_vaciar_favoritos.setVisibility(View.VISIBLE);
                 edit_text_nombre_opciones_usuarios.setText(gestor_sesion.sacar_nombre(getApplicationContext()));
                 edit_text_email_opciones_usuarios.setText(gestor_sesion.sacar_email(getApplicationContext()));
             } else {
@@ -308,6 +310,58 @@ public class OpcionesUsuario extends Activity {
             };
             boton_cambiar_email_opciones_usuarios.setOnClickListener(listener_cambiar_email);
 
+            View.OnClickListener listener_vaciar_favoritos = new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    StringRequest php_request = new StringRequest(Request.Method.POST, "http://192.168.56.1/leon_ocio/vaciar_favoritos.php", new Response.Listener<String>() {
+                        @Override
+                        public void onResponse(String response) {
+                            text_view_opciones_usuarios.setText(response);
+                            //Toast.makeText(getApplicationContext(),edit_text_panel_busqueda.getText().toString(),Toast.LENGTH_SHORT).show();
+                            ListView list_view_busqueda = findViewById(R.id.list_view_busqueda);
+                            try {
+                                JSONObject respuesta_JSON = new JSONObject(response);
+                                Boolean cambio = respuesta_JSON.getBoolean("cambio");
+                                //Toast.makeText(getApplicationContext(),encontrado+"",Toast.LENGTH_SHORT).show();
+                                if (cambio) {
+                                    Toast.makeText(getApplicationContext(),"Favoritos borrados",Toast.LENGTH_SHORT).show();
+
+                                } else {
+                                    Toast.makeText(getApplicationContext(),"Favoritos no borrados",Toast.LENGTH_SHORT).show();
+                                }
+
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+
+                        }
+                    }, new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            Toast.makeText(getApplicationContext(), "Error al conectarse con el servidor php", Toast.LENGTH_SHORT).show();
+                        }
+                    }) {
+                        @Override
+                        protected Map<String, String> getParams() throws AuthFailureError {
+
+                            Map<String, String> parametros = new HashMap<String, String>();
+
+
+
+                            parametros.put("idUsuario", gestor_sesion.sacar_idUsuario(getApplicationContext()));
+
+
+
+                            return parametros;
+                        }
+                    };
+
+
+                    RequestQueue mi_queue = Volley.newRequestQueue(getApplicationContext());
+                    mi_queue.add(php_request);
+                }
+            };
+            boton_vaciar_favoritos.setOnClickListener(listener_vaciar_favoritos);
 
         }
     }

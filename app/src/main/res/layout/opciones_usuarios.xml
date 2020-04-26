@@ -98,4 +98,11 @@
         android:layout_height="wrap_content"
         android:text="Cambiar email"
         android:visibility="gone"/>
+
+    <Button
+        android:id="@+id/boton_vaciar_favoritos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Vaciar_favoritos"
+        android:visibility="gone"/>
 </LinearLayout>
