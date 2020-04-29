@@ -13,13 +13,13 @@
             android:id="@+id/text_view_iniciar_sesion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
             android:layout_centerVertical="true"
             android:padding="5dp"
             android:text="pantalla_inicio_sesion"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
             android:textColor="#FFFFFF" />
 
         <Button
@@ -28,7 +28,7 @@
             android:layout_height="35dp"
             android:text="Cerrar Sesion"
             android:layout_alignParentRight="true"
-            android:background="@color/colorBanderaLeon"
+            android:background="@drawable/selector_custom_button"
             android:textAlignment="gravity"
             android:padding="3dp"
             android:textAllCaps="false"

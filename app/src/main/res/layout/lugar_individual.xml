@@ -3,18 +3,38 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/text_view_lugar_individual"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="TextView" />
+        android:layout_height="35dp"
+        android:background="@android:drawable/bottom_bar">
 
-    <Button
-        android:id="@+id/boton_cerrar_sesion_lugar_individual"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Cerrar Sesion"
-        android:visibility="gone"/>
+        <TextView
+            android:id="@+id/text_view_lugar_individual"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_centerVertical="true"
+            android:padding="5dp"
+            android:textColor="#FFFFFF"/>
+
+        <Button
+            android:id="@+id/boton_cerrar_sesion_lugar_individual"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_alignParentRight="true"
+            android:background="@color/colorBanderaLeon"
+            android:padding="3dp"
+            android:text="Cerrar sesion"
+            android:textAlignment="gravity"
+            android:textAllCaps="false"
+            android:textColor="@drawable/selector_text_color"
+            android:visibility="gone" />
+
+    </RelativeLayout>
 
     <TextView
         android:id="@+id/textView_li"

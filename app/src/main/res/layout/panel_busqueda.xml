@@ -3,32 +3,68 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/text_view_panel_busqueda"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="" />
+        android:layout_height="35dp"
+        android:background="@android:drawable/bottom_bar">
 
-    <Button
-        android:id="@+id/boton_cerrar_sesion_panel"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Cerrar sesion"
-        android:visibility="gone" />
+        <TextView
+            android:id="@+id/text_view_panel_busqueda"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_centerVertical="true"
+            android:padding="5dp"
+            android:textColor="#FFFFFF"/>
 
-    <EditText
-        android:id="@+id/edit_text_panel_busqueda"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="" />
+        <Button
+            android:id="@+id/boton_cerrar_sesion_panel"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_alignParentRight="true"
+            android:background="@color/colorBanderaLeon"
+            android:padding="3dp"
+            android:text="Cerrar sesion"
+            android:textAlignment="gravity"
+            android:textAllCaps="false"
+            android:textColor="@drawable/selector_text_color"
+            android:visibility="gone" />
+    </RelativeLayout>
 
-    <Button
-        android:id="@+id/boton_realizar_busqueda"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Realizar busqueda" />
+        android:layout_height="50dp"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/edit_text_panel_busqueda"
+            android:layout_width="210dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+
+            android:layout_alignParentBottom="true"
+            android:layout_centerVertical="true"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="" />
+
+        <Button
+            android:id="@+id/boton_realizar_busqueda"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/selector_custom_button"
+            android:padding="3dp"
+            android:text="Realizar busqueda"
+            android:textAlignment="gravity"
+            android:textAllCaps="false"
+            android:textColor="@drawable/selector_text_color" />
+    </RelativeLayout>
 
     <TextView
         android:id="@+id/textView_categorias"
