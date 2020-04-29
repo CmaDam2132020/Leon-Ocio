@@ -4,104 +4,166 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/text_view_main"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="35dp"
+        android:background="@android:drawable/bottom_bar"
+        android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/boton_iniciar_sesion_main"
+        <TextView
+            android:id="@+id/text_view_main"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:text="Hello World!"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:textColor="#FFFFFF"
+            android:padding="5dp"/>
+        <Button
+            android:id="@+id/boton_cerrar_sesion_main"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_alignParentRight="true"
+            android:background="@color/colorBanderaLeon"
+            android:textAlignment="gravity"
+            android:padding="3dp"
+            android:text="Cerrar Sesion"
+            android:textAllCaps="false"
+            android:textColor="@drawable/selector_text_color"
+            android:visibility="gone" />
+
+    </RelativeLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/string_boton_iniciar_sesion" />
+        android:layout_height="match_parent"
+        android:background="@android:color/background_light"
+        android:gravity="center_vertical|center_horizontal"
+        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/boton_ir_a_busqueda"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Iniciar busqueda" />
+        <ImageView
+            android:id="@+id/imagen_bandera"
+            android:layout_width="600px"
+            android:layout_height="150dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginBottom="100dp"
+            android:src="@drawable/bandera" />
 
-    <Button
-        android:id="@+id/boton_cerrar_sesion_main"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:visibility="gone"
-        android:text="Cerrar Sesion" />
+        <Button
+            android:id="@+id/boton_ir_a_busqueda"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="Iniciar Busqueda"
+            android:background="@drawable/selector_custom_button"
+            android:padding="10dp"
+            android:textAllCaps="false"
+            android:textColor="@drawable/selector_text_color"
+            android:layout_margin="10dp"
+            />
 
-    <Button
-        android:id="@+id/boton_abrir_registro"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Registrarse" />
+        <Button
+            android:id="@+id/boton_iniciar_sesion_main"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="@string/string_boton_iniciar_sesion"
+            android:background="@drawable/selector_custom_button"
+            android:padding="10dp"
+            android:textAllCaps="false"
+            android:textColor="@drawable/selector_text_color"
+            android:layout_margin="10dp"/>
 
-    <TextView
-        android:id="@+id/textView_nombre_main"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Nombre: "
-        android:visibility="gone"/>
+        <Button
+            android:id="@+id/boton_abrir_registro"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="Registrarse"
+            android:background="@drawable/selector_custom_button"
+            android:padding="10dp"
+            android:textAllCaps="false"
+            android:textColor="@drawable/selector_text_color"
+            android:layout_margin="10dp"/>
 
-    <EditText
-        android:id="@+id/editText_nombre_main"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text=""
-        android:visibility="gone"/>
+        <TextView
+            android:id="@+id/textView_nombre_main"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nombre: "
+            android:visibility="gone" />
 
-    <Button
-        android:id="@+id/boton_comprobar_nombre_main"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Comprobar nombre"
-        android:visibility="gone"/>
+        <EditText
+            android:id="@+id/editText_nombre_main"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text=""
+            android:visibility="gone" />
 
-    <TextView
-        android:id="@+id/textView_pass_main"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Contraseña: "
-        android:visibility="gone"/>
+        <Button
+            android:id="@+id/boton_comprobar_nombre_main"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="Comprobar nombre"
+            android:visibility="gone"
+            android:background="@drawable/selector_custom_button"
+            android:padding="10dp"
+            android:textAllCaps="false"
+            android:textColor="@drawable/selector_text_color"
+            android:layout_margin="10dp"/>
 
+        <TextView
+            android:id="@+id/textView_pass_main"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Contraseña: "
+            android:visibility="gone"
+            />
 
-    <EditText
-        android:id="@+id/editText_pass_main"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPassword"
-        android:visibility="gone"/>
+        <EditText
+            android:id="@+id/editText_pass_main"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPassword"
+            android:visibility="gone" />
 
-    <TextView
-        android:id="@+id/textView_email_main"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Email: "
-        android:visibility="gone"/>
+        <TextView
+            android:id="@+id/textView_email_main"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Email: "
+            android:visibility="gone" />
 
-    <EditText
-        android:id="@+id/editText_email_main"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text=""
-        android:visibility="gone"/>
+        <EditText
+            android:id="@+id/editText_email_main"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text=""
+            android:visibility="gone" />
 
-    <Button
-        android:id="@+id/boton_enviar_registro"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Enviar Registro"
-        android:visibility="gone"/>
+        <Button
+            android:id="@+id/boton_enviar_registro"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="Enviar Registro"
+            android:visibility="gone"
+            android:background="@drawable/selector_custom_button"
+            android:padding="10dp"
+            android:textAllCaps="false"
+            android:textColor="@drawable/selector_text_color"
+            android:layout_margin="10dp"
+            />
+    </LinearLayout>
+
 
 </LinearLayout>

@@ -9,6 +9,13 @@
         android:layout_height="wrap_content"
         android:text="" />
 
+    <Button
+        android:id="@+id/boton_cerrar_sesion_panel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Cerrar sesion"
+        android:visibility="gone" />
+
     <EditText
         android:id="@+id/edit_text_panel_busqueda"
         android:layout_width="match_parent"
@@ -75,13 +82,6 @@
         android:layout_height="wrap_content"
         android:text="Opciones usuario"
         android:visibility="gone"/>
-
-    <Button
-        android:id="@+id/boton_cerrar_sesion_panel"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Cerrar sesion"
-        android:visibility="gone" />
 
     <ScrollView
         android:layout_width="match_parent"

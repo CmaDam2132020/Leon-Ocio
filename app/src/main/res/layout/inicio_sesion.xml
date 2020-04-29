@@ -3,39 +3,72 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/text_view_iniciar_sesion"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="pantalla_inicio_sesion" />
+        android:layout_height="35dp"
+        android:background="@android:drawable/bottom_bar"
+        android:orientation="horizontal">
 
-    <EditText
-        android:id="@+id/edit_text_nombre"
+        <TextView
+            android:id="@+id/text_view_iniciar_sesion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:padding="5dp"
+            android:text="pantalla_inicio_sesion"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/boton_cerrar_sesion_inicio_sesion"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:text="Cerrar Sesion"
+            android:layout_alignParentRight="true"
+            android:background="@color/colorBanderaLeon"
+            android:textAlignment="gravity"
+            android:padding="3dp"
+            android:textAllCaps="false"
+            android:textColor="@drawable/selector_text_color"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="maria" />
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center_vertical|center_horizontal">
 
-    <EditText
-        android:id="@+id/edit_text_pass"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPassword"
-        android:text="maria3"/>
+        <EditText
+            android:id="@+id/edit_text_nombre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="maria" />
+
+        <EditText
+            android:id="@+id/edit_text_pass"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPassword"
+            android:text="maria3" />
+
+        <Button
+            android:id="@+id/boton_iniciar_sesion_is"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/selector_custom_button"
+            android:padding="10dp"
+            android:text="@string/string_boton_iniciar_sesion"
+            android:textAllCaps="false"
+            android:textColor="@drawable/selector_text_color" />
+    </LinearLayout>
 
 
-    <Button
-        android:id="@+id/boton_iniciar_sesion_is"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/string_boton_iniciar_sesion" />
-
-    <Button
-        android:id="@+id/boton_cerrar_sesion_inicio_sesion"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:visibility="gone"
-        android:text="Cerrar Sesion" />
 </LinearLayout>

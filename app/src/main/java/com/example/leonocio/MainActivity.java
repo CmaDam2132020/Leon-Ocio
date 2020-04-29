@@ -5,9 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -111,6 +113,8 @@ public class MainActivity extends AppCompatActivity {
             View.OnClickListener listener_boton_abrir_registro = new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    ImageView imagen_bandera = findViewById(R.id.imagen_bandera);
+                    imagen_bandera.setVisibility(View.GONE);
                     TextView textView_nombre_main = findViewById(R.id.textView_nombre_main);
                     textView_nombre_main.setVisibility(View.VISIBLE);
                     editText_nombre_main.setVisibility(View.VISIBLE);
@@ -251,6 +255,9 @@ public class MainActivity extends AppCompatActivity {
                 }
             };
             boton_enviar_registro.setOnClickListener(listener_enviar_registro);
+
+
+
         }
     }
 }
