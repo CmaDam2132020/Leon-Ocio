@@ -58,9 +58,9 @@
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
+            android:text="Realizar busqueda"
             android:background="@drawable/selector_custom_button"
             android:padding="3dp"
-            android:text="Realizar busqueda"
             android:textAlignment="gravity"
             android:textAllCaps="false"
             android:textColor="@drawable/selector_text_color" />
@@ -92,32 +92,63 @@
         android:entries="@array/orden_busqueda"
         android:spinnerMode="dropdown"/>
 
-    <Button
-        android:id="@+id/boton_ver_recomendados"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Ver Recomendados" />
+        android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/boton_ver_favoritos"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:visibility="gone"
-        android:text="Ver tus favoritos" />
+        <Button
+            android:id="@+id/boton_ver_recomendados"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:text="Recomendados"
+            android:background="@drawable/selector_custom_button"
+            android:padding="7dp"
+            android:textAlignment="gravity"
+            android:textAllCaps="false"
+            android:textColor="@drawable/selector_text_color"
+            android:layout_margin="3dp"/>
 
-    <Button
-        android:id="@+id/boton_administar_negocios"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:visibility="gone"
-        android:text="Administrar negocios" />
+        <Button
+            android:id="@+id/boton_ver_favoritos"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:background="@drawable/selector_custom_button"
+            android:padding="7dp"
+            android:text="Favoritos"
+            android:textAlignment="gravity"
+            android:textAllCaps="false"
+            android:textColor="@drawable/selector_text_color"
+            android:visibility="gone"
+            android:layout_margin="3dp"/>
 
-    <Button
-        android:id="@+id/boton_opciones_usuarios"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Opciones usuario"
-        android:visibility="gone"/>
+        <Button
+            android:id="@+id/boton_opciones_usuarios"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:background="@drawable/selector_custom_button"
+            android:padding="7dp"
+            android:text="Opciones"
+            android:textAlignment="gravity"
+            android:textAllCaps="false"
+            android:textColor="@drawable/selector_text_color"
+            android:visibility="gone"
+            android:layout_margin="3dp"/>
+
+        <Button
+            android:id="@+id/boton_administar_negocios"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:background="@drawable/selector_custom_button"
+            android:padding="7dp"
+            android:text="Administrar"
+            android:textAlignment="gravity"
+            android:textAllCaps="false"
+            android:textColor="@drawable/selector_text_color"
+            android:visibility="gone"
+            android:layout_margin="3dp"/>
+
+    </LinearLayout>
 
     <ScrollView
         android:layout_width="match_parent"

@@ -39,7 +39,12 @@
                 android:id="@+id/boton_cambiar_nombre"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Cambiar nombre" />
+                android:text="Cambiar nombre"
+                android:background="@drawable/selector_custom_button"
+                android:padding="3dp"
+                android:textAlignment="gravity"
+                android:textAllCaps="false"
+                android:textColor="@drawable/selector_text_color"/>
 
             <TextView
                 android:id="@+id/textView2"
@@ -59,7 +64,12 @@
                 android:id="@+id/boton_cambiar_direccion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Cambiar direccion" />
+                android:text="Cambiar direccion"
+                android:background="@drawable/selector_custom_button"
+                android:padding="3dp"
+                android:textAlignment="gravity"
+                android:textAllCaps="false"
+                android:textColor="@drawable/selector_text_color"/>
 
             <TextView
                 android:id="@+id/textView3"
@@ -79,13 +89,19 @@
                 android:id="@+id/boton_cambiar_visiblidad"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Cambiar visiblidad" />
+                android:text="Cambiar visiblidad"
+                android:background="@drawable/selector_custom_button"
+                android:padding="3dp"
+                android:textAlignment="gravity"
+                android:textAllCaps="false"
+                android:textColor="@drawable/selector_text_color"/>
 
             <TextView
                 android:id="@+id/textView4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Latitud: " />
+                android:text="Latitud: "
+                />
 
             <EditText
                 android:id="@+id/edit_text_latitud_lugar_administrado"
@@ -99,7 +115,12 @@
                 android:id="@+id/boton_cambiar_latitud"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Cambiar latitud" />
+                android:text="Cambiar latitud"
+                android:background="@drawable/selector_custom_button"
+                android:padding="3dp"
+                android:textAlignment="gravity"
+                android:textAllCaps="false"
+                android:textColor="@drawable/selector_text_color"/>
 
             <TextView
                 android:id="@+id/textView5"
@@ -119,7 +140,12 @@
                 android:id="@+id/boton_cambiar_longitud"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Cambiar longitud" />
+                android:text="Cambiar longitud"
+                android:background="@drawable/selector_custom_button"
+                android:padding="3dp"
+                android:textAlignment="gravity"
+                android:textAllCaps="false"
+                android:textColor="@drawable/selector_text_color"/>
 
             <TextView
                 android:id="@+id/textView6"
@@ -139,7 +165,12 @@
                 android:id="@+id/boton_cambiar_descripcion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Cambiar descripcion" />
+                android:text="Cambiar descripcion"
+                android:background="@drawable/selector_custom_button"
+                android:padding="3dp"
+                android:textAlignment="gravity"
+                android:textAllCaps="false"
+                android:textColor="@drawable/selector_text_color"/>
 
             <TextView
                 android:id="@+id/textView7"
@@ -158,7 +189,12 @@
                 android:id="@+id/boton_cambiar_categoria"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Cambiar categoria" />
+                android:text="Cambiar categoria"
+                android:background="@drawable/selector_custom_button"
+                android:padding="3dp"
+                android:textAlignment="gravity"
+                android:textAllCaps="false"
+                android:textColor="@drawable/selector_text_color"/>
         </LinearLayout>
     </ScrollView>
 

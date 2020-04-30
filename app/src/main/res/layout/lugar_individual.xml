@@ -125,7 +125,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Añadir a favoritos"
-        android:visibility="gone"/>
+        android:visibility="gone"
+        android:background="@drawable/selector_custom_button"
+        android:padding="3dp"
+        android:textAlignment="gravity"
+        android:textAllCaps="false"
+        android:textColor="@drawable/selector_text_color"/>
 
     <TextView
         android:id="@+id/textView8_li"
@@ -154,7 +159,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Enviar_review"
-        android:visibility="gone"/>
+        android:visibility="gone"
+        android:background="@drawable/selector_custom_button"
+        android:padding="3dp"
+        android:textAlignment="gravity"
+        android:textAllCaps="false"
+        android:textColor="@drawable/selector_text_color"/>
 
     <ScrollView
         android:layout_width="match_parent"

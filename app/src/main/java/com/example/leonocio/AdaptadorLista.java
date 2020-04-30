@@ -56,7 +56,7 @@ public class AdaptadorLista extends BaseAdapter {
 
         try {
             final JSONObject lugar = array_lugares.getJSONObject(i);
-            titulo_elemento_lista.setText("Nombre: "+lugar.getString("nombre"));
+            titulo_elemento_lista.setText(lugar.getString("nombre"));
             direccion_elemento_lista.setText("Direccion: "+lugar.getString("direccion"));
             categoria_elemento_lista.setText("Categoria: "+lugar.getString("nombreCategoria"));
             Double puntuacion = lugar.getDouble("puntuacion");

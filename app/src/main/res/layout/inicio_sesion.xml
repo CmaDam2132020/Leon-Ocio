@@ -28,7 +28,7 @@
             android:layout_height="35dp"
             android:text="Cerrar Sesion"
             android:layout_alignParentRight="true"
-            android:background="@drawable/selector_custom_button"
+            android:background="@color/colorBanderaLeon"
             android:textAlignment="gravity"
             android:padding="3dp"
             android:textAllCaps="false"

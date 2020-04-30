@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    >
 
     <TextView
         android:id="@+id/titulo_elemento_lista"
@@ -10,27 +11,32 @@
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:text="TextView"
-        android:textAlignment="center" />
-
-    <TextView
-        android:id="@+id/direccion_elemento_lista"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="TextView" />
+        android:textAlignment="center"
+        android:textSize="20dp"
+        android:layout_marginLeft="5dp"/>
 
     <TextView
         android:id="@+id/categoria_elemento_lista"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="TextView" />
+        android:text="TextView"
+        android:layout_marginLeft="5dp"/>
 
     <TextView
         android:id="@+id/puntuacion_elemento_lista"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="TextView" />
+        android:text="TextView"
+        android:layout_marginLeft="5dp"/>
+
+    <TextView
+        android:id="@+id/direccion_elemento_lista"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="TextView"
+        android:layout_marginLeft="5dp"/>
 
 </LinearLayout>
