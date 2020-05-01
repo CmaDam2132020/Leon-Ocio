@@ -84,9 +84,9 @@ public class LugarIndividual extends Activity {
             text_view_nombreCategoria_li.setText(intent_lugar_individual.getStringExtra("nombreCategoria"));
             String puntuacion = intent_lugar_individual.getStringExtra("puntuacion");
             if (puntuacion.equals("-1")) {
-                text_view_puntuacion_li.setText("Aun no hay puntuacion \n");
+                text_view_puntuacion_li.setText("Sin puntuacion");
             } else {
-                text_view_puntuacion_li.setText(puntuacion + "/5 \n");
+                text_view_puntuacion_li.setText(puntuacion + "/5");
             }
 
             /*text_view_lugar_individual.setText(intent_lugar_individual.getStringExtra("nombre")

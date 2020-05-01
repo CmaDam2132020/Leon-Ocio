@@ -36,89 +36,191 @@
 
     </RelativeLayout>
 
-    <TextView
-        android:id="@+id/textView_li"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Nombre: " />
+        android:orientation="horizontal"
+        android:background="@drawable/borde"
+        android:layout_margin="2dp">
 
-    <TextView
-        android:id="@+id/text_view_nombre_li"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="TextView" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:orientation="vertical"
+            android:layout_margin="5dp"
+            >
 
-    <TextView
-        android:id="@+id/textView2_li"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Direccion: " />
+            <TextView
+                android:id="@+id/textView_li"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
 
-    <TextView
-        android:id="@+id/text_view_direccion_li"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="TextView" />
+                android:text="Nombre: " />
 
-    <TextView
-        android:id="@+id/textView3_li"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Latitud: " />
+            <TextView
+                android:id="@+id/text_view_nombre_li"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="TextView"
+                android:textSize="15dp"
+                />
+        </LinearLayout>
 
-    <TextView
-        android:id="@+id/text_view_latitud_li"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="TextView" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:gravity="center_vertical|center_horizontal"
+            android:layout_margin="5dp"
+            >
 
-    <TextView
-        android:id="@+id/textView4_li"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Longitud: " />
+            <TextView
+                android:id="@+id/textView6_li"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Categoria: " />
 
-    <TextView
-        android:id="@+id/text_view_longitud_li"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="TextView" />
+            <TextView
+                android:id="@+id/text_view_nombreCategoria_li"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                android:textSize="15dp"/>
 
-    <TextView
-        android:id="@+id/textView5_li"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Descripcion: " />
 
-    <TextView
-        android:id="@+id/text_view_descripcion_li"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="TextView" />
 
-    <TextView
-        android:id="@+id/textView6_li"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Categoria: " />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_alignParentRight="true"
+            android:layout_margin="5dp">
 
-    <TextView
-        android:id="@+id/text_view_nombreCategoria_li"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="TextView" />
+            <TextView
+                android:id="@+id/textView7_li"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Puntuacion: " />
 
-    <TextView
-        android:id="@+id/textView7_li"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Puntuacion: " />
+            <TextView
+                android:id="@+id/text_view_puntuacion_li"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                android:textSize="15dp"/>
 
-    <TextView
-        android:id="@+id/text_view_puntuacion_li"
+        </LinearLayout>
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:gravity="center_vertical|center_horizontal"
+        android:orientation="horizontal"
+        android:background="@drawable/borde"
+        android:layout_margin="2dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="100dp">
+
+            <TextView
+                android:id="@+id/textView4_li"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Longitud: "
+                android:layout_margin="5dp"/>
+
+            <TextView
+                android:id="@+id/text_view_longitud_li"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                android:textSize="15dp"
+                android:layout_margin="5dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="100dp">
+
+            <TextView
+                android:id="@+id/textView3_li"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Latitud: "
+                android:layout_margin="5dp"/>
+
+            <TextView
+                android:id="@+id/text_view_latitud_li"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                android:textSize="15dp"
+                android:layout_margin="5dp"/>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView" />
+        android:orientation="vertical"
+        android:background="@drawable/borde"
+        android:layout_margin="2dp">
+
+        <TextView
+            android:id="@+id/textView2_li"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Direccion: "
+            android:layout_margin="5dp"/>
+
+        <TextView
+            android:id="@+id/text_view_direccion_li"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:textSize="15dp"
+            android:layout_margin="5dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/borde"
+        android:layout_margin="2dp">
+
+        <TextView
+            android:id="@+id/textView5_li"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Descripcion: "
+            android:layout_margin="5dp"/>
+
+        <TextView
+            android:id="@+id/text_view_descripcion_li"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:textSize="15dp"
+            android:layout_margin="5dp"/>
+
+    </LinearLayout>
 
     <Button
         android:id="@+id/boton_agregar_favorito"
@@ -137,7 +239,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Introduce tu review con tu puntuacion: "
-        android:visibility="gone"/>
+        android:visibility="gone"
+        android:textSize="20dp"
+        android:layout_margin="5dp"/>
 
     <RatingBar
         android:id="@+id/rating_bar_lugar_individual"
@@ -158,7 +262,7 @@
         android:id="@+id/boton_enviar_review"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Enviar_review"
+        android:text="Enviar Review"
         android:visibility="gone"
         android:background="@drawable/selector_custom_button"
         android:padding="3dp"
