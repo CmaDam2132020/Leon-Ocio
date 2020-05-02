@@ -6,27 +6,37 @@
     android:background="@drawable/borde"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/text_view_nombre_review"
-        android:layout_width="match_parent"
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView" />
+        android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/text_view_fecha_review"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="TextView" />
+        <TextView
+            android:id="@+id/text_view_nombre_review"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:layout_margin="5dp"/>
 
-    <TextView
-        android:id="@+id/text_view_puntuacion_review"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="TextView" />
+        <TextView
+            android:id="@+id/text_view_fecha_review"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:layout_margin="5dp"/>
+
+        <TextView
+            android:id="@+id/text_view_puntuacion_review"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:layout_margin="5dp"/>
+    </LinearLayout>
 
     <TextView
         android:id="@+id/text_view_comentario_review"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView" />
+        android:text="TextView"
+        android:layout_margin="5dp"/>
 </LinearLayout>

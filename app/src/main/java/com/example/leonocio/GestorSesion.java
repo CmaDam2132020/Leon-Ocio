@@ -2,7 +2,6 @@ package com.example.leonocio;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.widget.Toast;
 
 public class GestorSesion {
     public void  iniciar_sesion(Context ctx,String idUsuario,String nombre,String pass,String email,Boolean responsable){

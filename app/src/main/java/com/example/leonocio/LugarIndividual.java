@@ -1,7 +1,16 @@
 package com.example.leonocio;
 
+import android.Manifest;
+import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.hardware.Sensor;
+import android.hardware.SensorManager;
+import android.location.Location;
+import android.location.LocationManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -11,6 +20,10 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentActivity;
+
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -18,6 +31,16 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.tasks.OnSuccessListener;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -27,9 +50,10 @@ import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
-public class LugarIndividual extends Activity {
+public class LugarIndividual extends AppCompatActivity implements OnMapReadyCallback {
     static Boolean review_publicada = false;
     static Boolean lugar_en_favoritos = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,8 +71,7 @@ public class LugarIndividual extends Activity {
             final Button boton_cerrar_sesion_lugar_individual = findViewById(R.id.boton_cerrar_sesion_lugar_individual);
             final TextView text_view_nombre_li = findViewById(R.id.text_view_nombre_li);
             final TextView text_view_direccion_li = findViewById(R.id.text_view_direccion_li);
-            final TextView text_view_latitud_li = findViewById(R.id.text_view_latitud_li);
-            final TextView text_view_longitud_li = findViewById(R.id.text_view_longitud_li);
+
             final TextView text_view_descripcion_li = findViewById(R.id.text_view_descripcion_li);
             final TextView text_view_nombreCategoria_li = findViewById(R.id.text_view_nombreCategoria_li);
             final TextView text_view_puntuacion_li = findViewById(R.id.text_view_puntuacion_li);
@@ -57,7 +80,8 @@ public class LugarIndividual extends Activity {
             final Button boton_agregar_favorito = findViewById(R.id.boton_agregar_favorito);
             final EditText edit_text_review_usuario = findViewById(R.id.edit_text_review_usuario);
             final Button boton_enviar_review = findViewById(R.id.boton_enviar_review);
-
+            SupportMapFragment mi_mapa = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.mapa_google);
+            mi_mapa.getMapAsync(this);
             review_publicada = true;
 
             if (gestor_sesion.comprobar_sesion(getApplicationContext())) {
@@ -74,12 +98,10 @@ public class LugarIndividual extends Activity {
             }
 
 
-
             //Toast.makeText(getApplicationContext(), intent_lugar_individual.getStringExtra("idLugar"),Toast.LENGTH_SHORT).show();
             text_view_nombre_li.setText(intent_lugar_individual.getStringExtra("nombre"));
             text_view_direccion_li.setText(intent_lugar_individual.getStringExtra("direccion"));
-            text_view_latitud_li.setText(intent_lugar_individual.getStringExtra("latitud"));
-            text_view_longitud_li.setText(intent_lugar_individual.getStringExtra("longitud"));
+
             text_view_descripcion_li.setText(intent_lugar_individual.getStringExtra("descripcion"));
             text_view_nombreCategoria_li.setText(intent_lugar_individual.getStringExtra("nombreCategoria"));
             String puntuacion = intent_lugar_individual.getStringExtra("puntuacion");
@@ -165,7 +187,6 @@ public class LugarIndividual extends Activity {
                             return parametros;
                         }
                     };
-
 
 
                     RequestQueue mi_queue_comprobar_reiews = Volley.newRequestQueue(getApplicationContext());
@@ -258,7 +279,6 @@ public class LugarIndividual extends Activity {
                     //Toast.makeText(getApplicationContext(),"Boton enviar review pulsado",Toast.LENGTH_SHORT).show();
 
 
-
                 }
             };
             boton_enviar_review.setOnClickListener(listener_enviar_review);
@@ -319,9 +339,9 @@ public class LugarIndividual extends Activity {
                     RequestQueue.RequestFinishedListener listener_comprobar_favorito = new RequestQueue.RequestFinishedListener() {
                         @Override
                         public void onRequestFinished(Request request) {
-                            if(lugar_en_favoritos){
+                            if (lugar_en_favoritos) {
                                 Toast.makeText(getApplicationContext(), "Lugar no insertado en favoritos", Toast.LENGTH_SHORT).show();
-                            }else{
+                            } else {
                                 StringRequest php_request_agregar_favorito = new StringRequest(Request.Method.POST, "http://192.168.56.1/leon_ocio/agregar_favorito.php", new Response.Listener<String>() {
                                     @Override
                                     public void onResponse(String response) {
@@ -382,7 +402,7 @@ public class LugarIndividual extends Activity {
         }
     }
 
-    public void sacar_reviews(final Intent intent_lugar_individual){
+    public void sacar_reviews(final Intent intent_lugar_individual) {
         StringRequest php_request = new StringRequest(Request.Method.POST, "http://192.168.56.1/leon_ocio/sacar_reviews.php", new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -448,5 +468,57 @@ public class LugarIndividual extends Activity {
         mi_queue.add(php_request);
 
 
+    }
+
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+        Button boton_mi_posicion = findViewById(R.id.boton_mi_posicion);
+
+        final GoogleMap mi_mapa = googleMap;
+
+        View.OnClickListener listener_mi_posicion = new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.M)
+            @Override
+            public void onClick(View v) {
+
+                Toast.makeText(getApplicationContext(), "Boton pulsado", Toast.LENGTH_SHORT).show();
+                // instantiate the location manager, note you will need to request permissions in your manifest
+                LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+                // get the last know location from your location manager.
+
+                if (checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                    // TODO: Consider calling
+                    //    Activity#requestPermissions
+                    // here to request the missing permissions, and then overriding
+                    //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                    //                                          int[] grantResults)
+                    // to handle the case where the user grants the permission. See the documentation
+                    // for Activity#requestPermissions for more details.
+                    return;
+                }
+                Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+                // now get the lat/lon from the location and do something with it.
+                double mi_latitud = location.getLatitude();
+                double mi_longitud = location.getLongitude();
+                LatLng mi_posicion = new LatLng(mi_latitud,mi_longitud);
+                mi_mapa.addMarker(new MarkerOptions().position(mi_posicion).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
+                mi_mapa.moveCamera(CameraUpdateFactory.newLatLngZoom(mi_posicion,15));
+
+            }
+        };
+        boton_mi_posicion.setOnClickListener(listener_mi_posicion);
+        boton_mi_posicion.setVisibility(View.VISIBLE);
+
+        Intent intent = getIntent();
+        double latitud = Double.parseDouble(intent.getStringExtra("latitud"));
+        double longitud = Double.parseDouble(intent.getStringExtra("longitud"));
+        if(latitud==0||longitud==0){
+            mi_mapa.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(42.598889,-5.566944),15));
+        }else{
+
+            LatLng posicion = new LatLng(latitud,longitud);
+            mi_mapa.addMarker(new MarkerOptions().position(posicion));
+            mi_mapa.moveCamera(CameraUpdateFactory.newLatLngZoom(posicion,15));
+        }
     }
 }
