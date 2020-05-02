@@ -2,6 +2,7 @@ package com.example.leonocio;
 
 import android.content.Context;
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -109,8 +110,12 @@ public class MainActivity extends AppCompatActivity {
             View.OnClickListener listener_boton_abrir_registro = new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    ImageView bienvenida= findViewById(R.id.bienvenida);
+                    bienvenida.setVisibility(View.GONE);
                     ImageView imagen_bandera = findViewById(R.id.imagen_bandera);
                     imagen_bandera.setVisibility(View.GONE);
+                    ImageView bienvenida2 = findViewById(R.id.bienvenida2);
+                    bienvenida2.setVisibility(View.GONE);
                     TextView textView_nombre_main = findViewById(R.id.textView_nombre_main);
                     textView_nombre_main.setVisibility(View.VISIBLE);
                     editText_nombre_main.setVisibility(View.VISIBLE);
