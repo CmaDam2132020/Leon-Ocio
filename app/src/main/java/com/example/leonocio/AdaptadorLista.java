@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import org.json.JSONArray;
@@ -51,12 +52,23 @@ public class AdaptadorLista extends BaseAdapter {
         TextView direccion_elemento_lista = (TextView) vista.findViewById(R.id.direccion_elemento_lista);
         TextView categoria_elemento_lista = (TextView) vista.findViewById(R.id.categoria_elemento_lista);
         TextView puntuacion_elemento_lista = (TextView) vista.findViewById(R.id.puntuacion_elemento_lista);
-
+        ImageView imagen_categoria = vista.findViewById(R.id.imagen_categoria);
         try {
             final JSONObject lugar = array_lugares.getJSONObject(i);
             titulo_elemento_lista.setText(lugar.getString("nombre"));
             direccion_elemento_lista.setText("Direccion: "+lugar.getString("direccion"));
-            categoria_elemento_lista.setText("Categoria: "+lugar.getString("nombreCategoria"));
+            String nombreCategoria = lugar.getString("nombreCategoria");
+            categoria_elemento_lista.setText("Categoria: "+ nombreCategoria);
+            if(nombreCategoria.equals("Monumentos")){
+                imagen_categoria.setImageResource(R.drawable.monumento);
+            }else if(nombreCategoria.equals("Bares y Cafeterias")){
+                imagen_categoria.setImageResource(R.drawable.bar);
+            }else if(nombreCategoria.equals("Tiendas")){
+                imagen_categoria.setImageResource(R.drawable.tienda);
+            }else if(nombreCategoria.equals("Restaurantes")){
+                imagen_categoria.setImageResource(R.drawable.restaurante);
+            }
+
             Double puntuacion = lugar.getDouble("puntuacion");
             if(puntuacion==-1){
                 puntuacion_elemento_lista.setText("Aun no hay puntuacion");
