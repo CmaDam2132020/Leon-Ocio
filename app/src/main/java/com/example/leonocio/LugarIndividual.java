@@ -22,6 +22,7 @@ import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.FragmentActivity;
 
 import com.android.volley.AuthFailureError;
@@ -481,7 +482,7 @@ public class LugarIndividual extends AppCompatActivity implements OnMapReadyCall
             @Override
             public void onClick(View v) {
 
-                Toast.makeText(getApplicationContext(), "Boton pulsado", Toast.LENGTH_SHORT).show();
+
                 // instantiate the location manager, note you will need to request permissions in your manifest
                 LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
                 // get the last know location from your location manager.
@@ -496,13 +497,20 @@ public class LugarIndividual extends AppCompatActivity implements OnMapReadyCall
                     // for Activity#requestPermissions for more details.
                     return;
                 }
-                Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+                Location location = locationManager.getLastKnownLocation(LocationManager.PASSIVE_PROVIDER);
                 // now get the lat/lon from the location and do something with it.
-                double mi_latitud = location.getLatitude();
-                double mi_longitud = location.getLongitude();
-                LatLng mi_posicion = new LatLng(mi_latitud,mi_longitud);
-                mi_mapa.addMarker(new MarkerOptions().position(mi_posicion).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
-                mi_mapa.moveCamera(CameraUpdateFactory.newLatLngZoom(mi_posicion,15));
+                if(location!=null){
+                    double mi_latitud = location.getLatitude();
+                    double mi_longitud = location.getLongitude();
+
+                    LatLng mi_posicion = new LatLng(mi_latitud,mi_longitud);
+                    mi_mapa.addMarker(new MarkerOptions().position(mi_posicion).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
+                    mi_mapa.moveCamera(CameraUpdateFactory.newLatLngZoom(mi_posicion,15));
+                }else{
+                    Toast.makeText(getApplicationContext(), "No se ha podido sacar la posicion actual", Toast.LENGTH_SHORT).show();
+                   
+                }
+
 
             }
         };
