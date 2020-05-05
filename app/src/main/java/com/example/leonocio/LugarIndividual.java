@@ -508,7 +508,7 @@ public class LugarIndividual extends AppCompatActivity implements OnMapReadyCall
                     mi_mapa.moveCamera(CameraUpdateFactory.newLatLngZoom(mi_posicion,15));
                 }else{
                     Toast.makeText(getApplicationContext(), "No se ha podido sacar la posicion actual", Toast.LENGTH_SHORT).show();
-                   
+
                 }
 
 
